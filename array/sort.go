@@ -1,4 +1,4 @@
-package sort
+package array
 
 func BubbleSort(nums []int) {
 	for i := 0; i < len(nums); i++ {
@@ -34,7 +34,7 @@ func partition(nums []int, left int, right int, pivot int) int {
 			left++
 		}
 
-		// move the left pointer until element that is smaller than the pivot, because that should be on the left side.
+		// move the right pointer until element that is smaller than the pivot, because that should be on the left side.
 		for nums[right] > pivot {
 			right--
 		}
