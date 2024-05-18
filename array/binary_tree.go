@@ -77,3 +77,33 @@ func LevelorderTraversal(root *Node) [][]int {
 	return res
 }
 
+/* Maximum Depth */
+func (tree *BinaryTree) MaxDepth(root *Node) int {
+	if root == nil {
+		return 0
+	}
+	return max(tree.MaxDepth(root.left), tree.MaxDepth(root.right)) + 1 // 树的深度是root的高度，而root的高度是 左右孩子中较大者+1
+}
+
+/**
+* 最近公共祖先
+ */
+func (tree *BinaryTree) lowestCommonAncestor(root, p, q *Node) *Node {
+	if root == nil {
+		return nil
+	}
+	if root.data == p.data || root.data == q.data {
+		return root
+	}
+
+	var findLeft = tree.lowestCommonAncestor(root.left, p, q)
+	var findRight = tree.lowestCommonAncestor(root.right, p, q)
+
+	if findLeft != nil && findRight != nil {
+		return root
+	} else if findLeft != nil {
+		return findLeft
+	} else {
+		return findRight
+	}
+}
