@@ -107,3 +107,26 @@ func (tree *BinaryTree) lowestCommonAncestor(root, p, q *Node) *Node {
 		return findRight
 	}
 }
+
+/**
+* 构造二叉树（根据前序遍历和中序遍历）
+ */
+func (tree *BinaryTree) buildTree1(preorder []int, inorder []int) *Node {
+	if len(preorder) < 1 || len(inorder) < 1 {
+		return nil
+	}
+	left := tree.findRootIndex1(preorder[0], inorder)
+	root := &Node{
+		data:  preorder[0],
+		left:  tree.buildTree1(preorder[1:left+1], inorder[:left]),
+		right: tree.buildTree1(preorder[left+1:], inorder[left+1:])}
+	return root
+}
+func (tree *BinaryTree) findRootIndex1(target int, inorder []int) int {
+	for i := 0; i < len(inorder); i++ {
+		if target == inorder[i] {
+			return i
+		}
+	}
+	return -1
+}
