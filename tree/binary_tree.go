@@ -1,15 +1,16 @@
-package array
+package tree
 
 type BinaryTree struct {
 	root *Node
 }
 
 type Node struct {
-	data int
+	data   int
 	parent *Node
-	left *Node
-	right *Node
+	left   *Node
+	right  *Node
 }
+
 /* Preorder Traversal */
 func (tree *BinaryTree) PreorderTraversal(root *Node, callback func(int)) {
 	if root == nil {
@@ -179,7 +180,6 @@ func (tree *BinaryTree) serialize(root *Node) string {
 	return sb.String()
 }
 
-
 // Deserializes your encoded data to tree.
 func (tree *BinaryTree) deserialize(data string) *Node {
 	sp := strings.Split(data, ",")
@@ -199,6 +199,7 @@ func (tree *BinaryTree) deserialize(data string) *Node {
 	}
 	return build()
 }
+
 /**
  *  树的子结构
  */
@@ -232,6 +233,7 @@ func (tree *BinaryTree) isSubStructure(A *Node, B *Node) bool {
 	//利用 || 的短路特性可写成
 	//return helper(A,B) || isSubStructure(A.Left,B) || isSubStructure(A.Right,B)
 }
+
 // helper 校验 B 是否与 A 的一个子树拥有相同的结构和节点值
 func (tree *BinaryTree) helper(a, b *Node) bool {
 	if b == nil {
@@ -246,7 +248,8 @@ func (tree *BinaryTree) helper(a, b *Node) bool {
 	//a.data == b.data 递归校验 A B 左子树和右子树的结构和节点是否相同
 	return tree.helper(a.left, b.left) && tree.helper(a.right, b.right)
 }
-**
+
+/**
  *  对称二叉树
  */
 func isSymmetric(root *Node) bool {
@@ -267,6 +270,7 @@ func isSymmetric(root *Node) bool {
 
 	return defs(root.left, root.right)
 }
+
 /* InvertTree func is for inverting the binary tree */
 func InvertTree(root *Node) *Node {
 	if root == nil {
