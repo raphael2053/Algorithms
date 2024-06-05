@@ -1,18 +1,28 @@
 package array
 
-// 迭代遍历数组
-func traverse(arr []int) {
-	for idx, val := range arr {
-		println(idx, val)
+import "strconv"
+
+// Iterating through a slice using a for loop
+func Traverse(arr []int) string {
+	var res string
+	for _, val := range arr {
+		res += strconv.Itoa(val)
 	}
+	return res
 }
 
-// 递归遍历数组
-func traverseRecursive(arr []int, i int) {
+// Iterating through a slice using recursion
+var res string
+
+func TraverseRecursive(arr []int, i int) string {
 	if i == len(arr) {
-		return
+		return res
 	}
-	// 前序位置
-	traverseRecursive(arr, i+1)
-	// 后序位置
+	// Preorder position
+	res += strconv.Itoa(arr[i])
+
+	TraverseRecursive(arr, i+1)
+	// Postorder position
+
+	return res
 }
