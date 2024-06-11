@@ -82,9 +82,7 @@ func (tree *BinaryTree) MaxDepth(root *Node) int {
 	return max(tree.MaxDepth(root.left), tree.MaxDepth(root.right)) + 1 // 树的深度是root的高度，而root的高度是 左右孩子中较大者+1
 }
 
-/**
-* 最近公共祖先
- */
+/* The closest common ancestor node */
 func (tree *BinaryTree) lowestCommonAncestor(root, p, q *Node) *Node {
 	if root == nil {
 		return nil
