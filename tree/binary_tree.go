@@ -103,9 +103,7 @@ func (tree *BinaryTree) lowestCommonAncestor(root, p, q *Node) *Node {
 	}
 }
 
-/**
-* 构造二叉树（根据前序遍历和中序遍历）
- */
+/* Constructing a Binary Tree ( From Preorder and Inorder Traversal ) */
 func (tree *BinaryTree) buildTree1(preorder []int, inorder []int) *Node {
 	if len(preorder) < 1 || len(inorder) < 1 {
 		return nil
