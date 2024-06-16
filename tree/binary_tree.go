@@ -1,5 +1,10 @@
 package tree
 
+import (
+	"strconv"
+	"strings"
+)
+
 type BinaryTree struct {
 	root *Node
 }
@@ -124,9 +129,7 @@ func (tree *BinaryTree) findRootIndex1(target int, inorder []int) int {
 	return -1
 }
 
-/**
-* 构造二叉树（根据后序遍历和中序遍历）
- */
+/* Constructing a Binary Tree ( From Postorder and Inorder Traversal ) */
 func (tree *BinaryTree) buildTree2(inorder []int, postorder []int) *Node {
 	if len(inorder) < 1 || len(postorder) < 1 {
 		return nil
@@ -151,9 +154,6 @@ func (tree *BinaryTree) findRootIndex2(inorder []int, target int) (index int) {
 	return -1
 }
 
-/**
- * 二叉树的序列化与反序列化
- */
 // Serializes a tree to a single string.
 func (tree *BinaryTree) serialize(root *Node) string {
 	sb := &strings.Builder{}
