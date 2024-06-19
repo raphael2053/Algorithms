@@ -241,9 +241,7 @@ func (tree *BinaryTree) helper(a, b *Node) bool {
 	return tree.helper(a.left, b.left) && tree.helper(a.right, b.right)
 }
 
-/**
- *  对称二叉树
- */
+/* Symmetric Binary Tree */
 func isSymmetric(root *Node) bool {
 
 	var defs func(left *Node, right *Node) bool
