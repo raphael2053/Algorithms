@@ -1,4 +1,4 @@
 test:
 	go test ./...
 build:
-	gp build .
+	gp build . -O main.
