@@ -1,3 +1,2 @@
 # Algorithms
-This repo collects implements of common algorithms.
-test5
+This repo collects implements of common algorithms, including array, linked list
