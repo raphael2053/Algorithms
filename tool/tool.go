@@ -61,3 +61,12 @@ func Contains(slice []interface{}, targets ...interface{}) bool {
 	}
 	return true
 }
+
+/* Record the time cost of this function */
+func comsumeTime() {
+	defer func(startTime int64) {
+		log.Printf("time cost: %v ms", (time.Now().UnixNano()-startTime)/1e6)
+	}(time.Now().Unix())
+
+	/* business logic below*/
+}
