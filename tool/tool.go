@@ -71,7 +71,8 @@ func comsumeTime() {
 	/* business logic below*/
 }
 
-// 通过反射机制来获取interface的字段和方法
+// Getting fields and methods of an `Interface` using reflection.
+
 // func main() {
 
 // 	user := User{1, "Allen.Wu", 25}
